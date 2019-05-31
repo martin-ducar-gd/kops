@@ -42,6 +42,10 @@ func (b *EtcdBuilder) Build(c *fi.ModelBuilderContext) error {
 		glog.Infof("Detected CoreOS; skipping etcd user installation")
 		return nil
 
+	case distros.DistributionFlatcar:
+		klog.Infof("Detected Flatcar; skipping etcd user installation")
+		return nil
+
 	case distros.DistributionContainerOS:
 		glog.Infof("Detected ContainerOS; skipping etcd user installation")
 		return nil
